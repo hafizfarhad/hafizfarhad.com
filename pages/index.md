@@ -1,11 +1,11 @@
 ---
-title: Hafiz Farhad
+title: Cyber security researcher, programmer, & CTF player
 description: Hafiz Farhad's Portfolio
 image: https://antfu.me/og.png
 art: random
 ---
 
-Hey, I am Hafiz Farhad, a fanatical open sourceror.
+I'm Hafiz Farhad. I'm an undergraduate cyber security researcher at FAST NUCES Karachi, Pakistan. I'm very passionate about learning new things, building projects and blogging about them.
 
 Working at {NuxtLabs}<br>
 Creator of {Vitest} {Slidev} {VueUse} {UnoCSS} {Elk} {Type Challenges}<br>
@@ -25,7 +25,7 @@ Outside of programming, I enjoy doing photography and traveling. Some of my phot
 Find me on
 
 <p flex="~ gap-2 wrap" class="mt--2!">
-  <a href="https://github.com/antfu" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
+  <a href="https://github.com/hafizfarhad" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
   <a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a>
   <a href="https://www.twitter.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a>
   <a href="https://chat.antfu.me" target="_blank"><span op75 i-simple-icons-discord /> Discord Server</a>
@@ -36,7 +36,7 @@ Find me on
   <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a>
 </p>
 
-Or mail me at <span font-mono>hi<span i-carbon-at/>antfu.me</span>
+Or mail me at <span font-mono>hi<span i-carbon-at/>hafizfarhad.com</span>
 
 ---
 
