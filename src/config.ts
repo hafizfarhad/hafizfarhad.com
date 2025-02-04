@@ -136,3 +136,20 @@ export const SOCIALS: SocialObjects = [
     active: false,
   },
 ];
+
+// only for comments
+
+import type { GiscusProps } from "@giscus/react";
+
+export const GISCUS: GiscusProps = {
+  repo: "hafizfarhad/ama",
+  repoId: "R_kgDON0aZOg",
+  category: "Announcements",
+  categoryId: "DIC_kwDON0aZOs4CmqXg",
+  mapping: "pathname",
+  reactionsEnabled: "0",
+  emitMetadata: "0",
+  inputPosition: "top",
+  lang: "en",
+  loading: "lazy",
+};
