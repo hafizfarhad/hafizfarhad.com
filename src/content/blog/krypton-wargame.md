@@ -40,7 +40,7 @@ decoded_string = base64.b64decode('S1JZUFRPTklTR1JFQVQ=')
 print(decoded_string.decode('utf-8'))
 ```
 
-Flag: KRYPTONISGREAT
+Flag: __KRYPTONISGREAT__
 
 Let's move to another level.
 
@@ -48,21 +48,21 @@ Let's move to another level.
 
 As the description says. It is ‘encrypted’ using a simple rotation.
 
-Once we are logged in successfully. we will cd to _/krypton/_ directory and then into _/krypton1/_.
+Once we are logged in successfully. we will cd to __/krypton/__ directory and then into __/krypton1/__.
 
 ```bash
 cd /krypton/krypton1/
 ```
 
-Type ```ls``` and you'll see 2 files in the _/krypton1/_ directory: `krypton2` and `README`.
+Type __ls__ and you'll see 2 files in the __/krypton1/__ directory: __krypton2__ and __README__.
 
-You can read both files in the terminal by using `cat` command.
+You can read both files in the terminal by using __cat__ command.
 
 ```bash
 cat README
 ```
 
-It tells you about the password which is encrypted in the file `krypton2`. It also tells about the encryption algorithm used in the file `krypton2`, ROT13.
+It tells you about the password which is encrypted in the file __krypton2__. It also tells about the encryption algorithm used in the file __krypton2__, ROT13.
 
 ```bash
 cat krypton2
@@ -88,5 +88,5 @@ decoded_message = rot13(message)
 print(decoded_message)
 ```
 
-Flag: LEVEL TWO PASSWORD ROTTEN
+Flag: __LEVEL TWO PASSWORD ROTTEN__
 

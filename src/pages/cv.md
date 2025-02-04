@@ -1,4 +1,4 @@
 ---
 layout: ../layouts/CVLayout.astro
-title: "CV"
+title: "CV/Resume"
 ---

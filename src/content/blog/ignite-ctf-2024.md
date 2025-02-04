@@ -2,17 +2,18 @@
 title: Ignite National Technology Fund CTF 2024 Writeup
 author: Hafiz Farhad
 pubDatetime: 2024-11-21T09:12:47.400Z
-slug: ignite-techfund-ctf-2024
+modDatetime: 2024-12-21T09:12:47.400Z
+slug: ignite-ctf-2024
 featured: false
 draft: false
 tags:
   - crypto
+  - forensics
+  - mobile
 description: This is a pre-qualification round write-up for Ignite CTF 2024. In this write-up I have covered crypto, mobile and forensics categories.
 ---
 
-> Disclaimer: I am constantly working on this write-up. It's not complete yet.
-
-> This was the first time we played a national level ctf hackathon. We ranked 132 out of 800 teams. We managed to solve mobile, crypto, and forensics challenges. But in the competition we also had other categories like web, pwn, rev, and programming too - that we couldn't solve for this time.
+This was the first time we played a national level ctf hackathon. We ranked 132 out of 800 teams. We managed to solve mobile, crypto, and forensics challenges. But in the competition we also had other categories like web, pwn, rev, and programming too - that we couldn't solve for this time.
 
 ## Table of contents
 
@@ -29,23 +30,23 @@ __Hint:__ N/A
 
 __File:__ Download from [here](https://github.com/hafizfarhad/ctf/blob/main/prequalification_ignite_2024/mobile/drive.apk).
 
-In this challenge we were given a drive.apk file.
+In this challenge we are given a drive.apk file.
+
 So, I decompiled it using ```apktool```.
 
 ```bash
 apktool  d  drive.apk
 # d for decompile
 ```
-Once a decompilation is complete. we get the directory named same as your .apk file. In my case it was ```drive```.
-Now, I tried to find the flag in decoded directory. Because, sometimes the flag is hidden in ```smali``` named files. So I used ```grep -r "flag{" .``` in every directory inside the main decoded directory (drive) but couldn't find anything usefull.
+Once a decompilation is complete, we get the directory named same as .apk file. In my case it is __drive__.
+After that, I tried to find the flag in decoded directory. Because, sometimes the flag is hidden in __smali__ named files. So I used __grep -r "flag{" .__ command in every directory inside the main decoded directory __drive__ but couldn't find anything usefull.
 
-> For those who don't know what does ```grep -r "flag{" .``` command does. Basically, `grep` is used in terminal to search something in the file. And -r flag emphasizes that search `"flag{"` recursively. While ```.``` shows that search this in current directory. We can read this whole command as: search `flag{` in the all files of current directory.
 
-After visiting every directory thoroughly I came across this _assets_ directory.
+After visiting every directory thoroughly I came across this __assets__ directory.
 
-In the _assets_ directory I found ```logins.db```.
+In the __assets__ directory, I found __logins.db__.
 
-Then, I went on [sqlite-viewer](https://inloop.github.io/sqlite-viewer/) and pasted the ```logins.db``` file there.
+Then, I went on [sqlite-viewer](https://inloop.github.io/sqlite-viewer/) and pasted the __logins.db__ file there.
 
 From there I got username and password.
 
@@ -59,7 +60,7 @@ Now install drive.apk on phone using __adb__.
 
 But before this, I have to connect my phone with my laptop via USB cable and make sure to on __USB Debugging__ in the settings.
 
-> In case you don't find __USB Debugging__ option. Go to your phone settings and find _My phone_ then look for _Build number_ and tap _Build number_ 7 times. 
+> In case you don't find __USB Debugging__ option. Go to your phone __Settings__ and find __My Phone__ then look for __Build Number__ and tap __Build Number__ 7 times. 
 
 
 ```bash
@@ -80,6 +81,8 @@ adb  shell  monkey  -p com.dam.drive -c  android.intent.category.LAUNCHER  1
 ```
 Check your phone. Enter username and password. Hit enter.
 
+I think there is a way to enter this huge password using adb and terminal. So, try it yourself.
+
 Now analyze logs.
 
 ```bash
@@ -91,7 +94,8 @@ And finally, use grep and grab your flag.
 ```bash
 grep  -r  "flag{"  logs.txt
 ```
-```flag{l!on_h@v3_c@uGhT}```
+Flag: __flag{l!on_h@v3_c@uGhT}__
+
 
 ## Forensics
 
@@ -103,16 +107,7 @@ __Hint:__ N/A
 
 __File:__ Download from [here](https://github.com/hafizfarhad/ctf/blob/main/prequalification_ignite_2024/forensics/capture_8589960862.pcapng).
 
-```flag{7b57b8c1–88d4–5267–9907–2581d7fbc3ad}```
-
-
-### Challenge: darwin
-
-__Description:__ N/A
-
-__Hint:__ N/A
-
-__File:__ Download from [here](https://github.com/hafizfarhad/ctf/blob/main/prequalification_ignite_2024/mobile/Darwin.apk).
+Flag: __flag{7b57b8c1–88d4–5267–9907–2581d7fbc3ad}__
 
 
 ## Crypto
@@ -151,3 +146,4 @@ original_ct = pow(original_ct, d, n)
 flag = long_to_bytes(original_ct)
 print(flag.decode())
 ```
+Flag: __flag{1b8f63a9963c926c02b2c98b41133c08de3bebba50bbb6015112f4c3ed594e80}__
