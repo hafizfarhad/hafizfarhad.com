@@ -15,9 +15,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
-    }),
+    sitemap(),
   ],
   markdown: {
     remarkPlugins: [
