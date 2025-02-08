@@ -2,7 +2,7 @@
 layout: ../layouts/ProjectsLayout.astro
 title: "Projects"
 ---
-_All the proects I've worked on._
+_All the projects I've worked on._
 
 ### [Identity & Access Management (IAM)](https://github.com/hafizfarhad)
 - Developed an Identity and Access Management (IAM) system using Flask and
