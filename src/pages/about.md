@@ -2,6 +2,7 @@
 layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
+[Download My CV](https://raw.githubusercontent.com/hafizfarhad/cv/main/CV_hafiz_farhad.pdf)
 
 I am an undergraduate cyber security researcher working under the supervision of Prof. Anam Qureshi, PhD.
 
