@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Understanding Git and Github"
+date:   2025-09-27 15:25:12 +0500
+categories: notes
+---
+
+Setting up git on linux.
+
+I am assuming you have an ubuntu or any debian based linux distribution installed on your system/PC.
+
+Otherwise, you’ll probably need to install git using respective package-manager.
+
+### Install git
+
+{% highlight shell %}
+
+sudo apt update
+sudo apt upgrade
+
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+
+git --version
+
+{% endhighlight %}
+
+### Setup
+
+{% highlight shell %}
+
+git config --global user.name "yourname"
+git config --global user.email "yourgmail@gmail.com"
+
+git config --global init.defaultBranch main
+
+git config --get user.name
+git config --get user.email
+
+ls ~/.ssh/id_ed25519.pub
+
+ssh-keygen -t ed25519
+
+cat ~/.ssh/id_ed25519.pub
+
+{% endhighlight %}
+
+Copy this key and paste it in github ssh section.
+
+Now you will be able to git clone using ssh

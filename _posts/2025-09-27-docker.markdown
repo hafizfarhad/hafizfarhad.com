@@ -1,0 +1,122 @@
+---
+layout: post
+title:  "Understanding Docker"
+date:   2025-09-27 15:25:12 +0500
+categories: notes
+---
+
+In most of the projects, you’ll typically see either of the two following files:
+
+1. Dockerfile - This file contains Instructions to build a single container
+
+2. docker-compose.yml - The file contains Instructions to build multiple containers that work together
+
+Note: I am not going to talk about how we create this files.
+
+Instead, here I will guide you when to use which file? and how to use that.
+
+*Always use docker-compose.yml file if given.*
+
+### Install
+
+If you haven’t installed docker follow these instructions.
+
+add gpg keys of docker in you apt package-manager and update it.
+
+*apt package-manager is for debian based distros. If you are using windows or any other linux distro which is not based on Debian. You will need to figure out installation steps by yourself.*
+
+{% highlight shell %}
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+{% endhighlight %}
+{% highlight shell %}
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+install docker and its necessary plugins
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+pull run container
+
+sudo docker run hello-world
+{% endhighlight %}
+
+
+### docker-compose.yml
+
+As discussed earlier if you are given project which contains docker-compose.yml file. You should follow the following steps to run docker container.
+
+{% highlight shell %}
+# Build the containers (the --no-cache makes sure everything is fresh)
+docker compose build --no-cache
+{% endhighlight %}
+
+{% highlight shell %}
+# Start the containers in the background
+docker compose up -d
+{% endhighlight %}
+
+{% highlight shell %}
+# See all running containers
+docker ps -a
+{% endhighlight %}
+
+{% highlight shell %}
+# When you're done, shut everything down
+docker compose down -v
+{% endhighlight %}
+
+### Dockerfile
+If you dont have docker-compose.yml file in the given project. Follow these steps.
+
+{% highlight shell %}
+# Build the container
+docker build -t challenge-name .
+{% endhighlight %}
+
+{% highlight shell %}
+# Run the container (maps port 8080 on your computer to port 80 in the container)
+docker run -d -p 8080:80 --name challenge-name-container challenge-name
+{% endhighlight %}
+
+{% highlight shell %}
+# Stop the container when done
+docker stop challenge-name-container
+{% endhighlight %}
+
+{% highlight shell %}
+# Remove the container
+docker rm challenge-name-container
+{% endhighlight %}
+
+*challenge-name is the Docker image (template), while challenge-name-container is the running instance created from that image. You can create multiple different containers from the same image, each with its own settings.*
+
+### Debugging
+
+If you encounter any problems while following above commands:
+
+Always make sure to add sudo before commands, otherwise you might get “permission denied” errors.
+
+Checkout container logs:
+
+{% highlight shell %}
+docker logs challenge-name-container
+{% endhighlight %}
+
+#### Cleanup
+
+When you want to cleanup everything - containers, networks, volumes, use the following command:
+
+{% highlight shell %}
+docker system prune -af --volumes
+{% endhighlight %}
