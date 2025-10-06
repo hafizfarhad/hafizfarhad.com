@@ -5,8 +5,7 @@ permalink: /about/
 ---
 
 
-I am an undergraduate (final year) cyber security student at FAST National University working under the supervision of 
-Prof. Dr. Anam Qureshi.
+I am an undergraduate (final year) cyber security student at FAST National University Karachi, Pakistan.
 
 My research interest lies within AI Security/AI for Security, Application Security, 
 Reverse Engineering, Vulnerability Assessment, and Exploit Development.
