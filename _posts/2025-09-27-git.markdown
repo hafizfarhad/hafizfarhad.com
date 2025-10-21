@@ -30,8 +30,8 @@ git --version
 
 {% highlight shell %}
 
-git config --global user.name "yourname"
-git config --global user.email "yourgmail@gmail.com"
+git config --global user.name "username"
+git config --global user.email "example@gmail.com"
 
 git config --global init.defaultBranch main
 

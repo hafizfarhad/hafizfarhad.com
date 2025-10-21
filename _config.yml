@@ -29,6 +29,7 @@ github_username:  hafizfarhad
 
 # Build settings
 theme: minima
+
 plugins:
   - jekyll-feed
 
