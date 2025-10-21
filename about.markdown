@@ -18,10 +18,8 @@ I can reflect upon my journey (and maybe inspire fellow cyber security researche
 
 ### Selected Achievements
 
-
-- *1st Place* - in the inter-university Capture the Flag (CTF) competition organized by DevDay'24 FAST NUCES Karachi
-
-- *Top 10%* - AWS DeepRacer Student Nationals March 2023
+- <span style="color: red;">1st Place</span> - in the inter-university Capture the Flag (CTF) competition organized by DevDay'24 FAST NUCES Karachi
+- <span style="color: red;">Top 10%</span> - AWS DeepRacer Student Nationals March 2023
 
 
 ### Get In Touch
